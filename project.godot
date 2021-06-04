@@ -11,7 +11,15 @@ config_version=4
 [application]
 
 config/name="Snake"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=800
+window/size/height=800
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [physics]
 
