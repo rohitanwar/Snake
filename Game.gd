@@ -38,19 +38,19 @@ func draw_snake():
 		if block_index == 0:
 			var head_dir = relation2(snake_body[0],snake_body[1])
 			if head_dir == 'right': 
-				$SnakeApple.set_cell(block.x,block.y,SNAKE,true,false,false,Vector2(2,0))
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, true, false, false, Vector2(2,0))
 			if head_dir == 'left': 
-				$SnakeApple.set_cell(block.x,block.y,SNAKE,false,false,false,Vector2(2,0))
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(2,0))
 			if head_dir == 'top': 
-				$SnakeApple.set_cell(block.x,block.y,SNAKE,false,false,false,Vector2(3,0))
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(3,0))
 			if head_dir == 'bottom': 
-				$SnakeApple.set_cell(block.x,block.y,SNAKE,false,true,false,Vector2(3,0))
+				$SnakeApple.set_cell(block.x,block.y, SNAKE, false, true, false, Vector2(3,0))
 		elif block_index == snake_body.size() - 1:
-			var tail_dir = relation2(snake_body[-1],snake_body[-2])
+			var tail_dir = relation2(snake_body[-1], snake_body[-2])
 			if tail_dir == 'right': 
-				$SnakeApple.set_cell(block.x,block.y,SNAKE,false,false,false,Vector2(0,0))
+				$SnakeApple.set_cell(block.x, block.y, SNAKE, false, false, false, Vector2(0,0))
 			if tail_dir == 'left': 
-				$SnakeApple.set_cell(block.x,block.y,SNAKE,true,false,false,Vector2(0,0))
+				$SnakeApple.set_cell(block.x, block.y, SNAKE,true,false,false,Vector2(0,0))
 			if tail_dir == 'top': 
 				$SnakeApple.set_cell(block.x,block.y,SNAKE,false,true,false,Vector2(0,1))
 			if tail_dir == 'bottom': 
@@ -119,7 +119,7 @@ func check_game_over():
 	var head = snake_body[0]
 	if head.x >= 20 or head.x < 0 or head.y >= 20 or head.y < 0:
 		reset()
-	for block in snake_body.slice(1,snake_body.size() - 1):
+	for block in snake_body.slice(1, snake_body.size() - 1):
 		if block == head:
 			reset()
 
