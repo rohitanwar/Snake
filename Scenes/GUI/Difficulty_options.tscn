@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/Dynamic_Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/GUI/Hover_Style_box.tres" type="StyleBox" id=2]
+[ext_resource path="res://Scenes/GUI/Pressed_Style_box.tres" type="StyleBox" id=3]
+[ext_resource path="res://Scenes/GUI/Normal_style.tres" type="StyleBox" id=4]
+[ext_resource path="res://Scenes/GUI/Difficulty_options.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Levels/Game.tscn" type="PackedScene" id=6]
+
+[node name="Difficulty_options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 14.5
+margin_bottom = 14.5
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+game_scene = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -118.0
+margin_top = -30.0
+margin_right = 119.0
+margin_bottom = 30.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="easy" type="Button" parent="VBoxContainer"]
+margin_right = 237.0
+margin_bottom = 54.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "EASY"
+
+[node name="med" type="Button" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 237.0
+margin_bottom = 128.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MEDIUM"
+
+[node name="hard" type="Button" parent="VBoxContainer"]
+margin_top = 148.0
+margin_right = 237.0
+margin_bottom = 202.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HARD"
+
+[connection signal="button_up" from="VBoxContainer/easy" to="." method="_on_easy_button_up"]
+[connection signal="button_up" from="VBoxContainer/med" to="." method="_on_med_button_up"]
+[connection signal="button_up" from="VBoxContainer/hard" to="." method="_on_hard_button_up"]
