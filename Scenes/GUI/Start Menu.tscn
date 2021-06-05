@@ -9,14 +9,14 @@
 [ext_resource path="res://Scenes/GUI/Pressed_Style_box.tres" type="StyleBox" id=7]
 [ext_resource path="res://Scenes/GUI/Normal_style.tres" type="StyleBox" id=8]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0.72549, 0.0784314, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -43,7 +43,7 @@ margin_bottom = 450.0
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 7 )
 custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Start"
@@ -58,7 +58,7 @@ margin_left = 33.6818
 margin_top = 18.4997
 margin_right = 364.682
 margin_bottom = 57.4997
-custom_styles/normal = SubResource( 5 )
+custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "High Score: "
