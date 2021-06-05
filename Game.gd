@@ -1,5 +1,3 @@
-
-#Test Test Test Test Test Test Test Test  
 extends Node
 
 const SNAKE = 0
