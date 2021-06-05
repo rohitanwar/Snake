@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SaveSystem="*res://Save_System.gd"
+SharedData="*res://Shared_Data.gd"
 
 [display]
 
