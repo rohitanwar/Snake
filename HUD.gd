@@ -6,7 +6,9 @@ var current_score = 0
 
 
 func _physics_process(delta):
-	increase_score()
+	
+	current_score = parent.snake_body.size() - 3
+	
 	Score_label.text = "Score " + str(current_score)
 	
 	#Save the score if player reaches a higher score
@@ -24,11 +26,7 @@ func _physics_process(delta):
 func game_over():
 	return parent.game_over
 
-#Increase the score when apple is eaten
-func increase_score():
-	if parent.apple_ate:
-		parent.apple_ate = false
-		current_score += 1
+
 	
 #Resets The score when playe loses
 func reset_score():

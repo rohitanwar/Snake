@@ -10,7 +10,6 @@ var snake_direction = Vector2(1,0)
 var add_apple = false
 
 var game_over = false
-var apple_ate = false
 
 func _ready():
 	
@@ -136,7 +135,6 @@ func reset():
 func check_apple_eaten():
 	if applepos == snake_body[0]:
 		add_apple = true
-		apple_ate = true
 		applepos = place_apple()
 
 func _on_SnakeTick_timeout():
