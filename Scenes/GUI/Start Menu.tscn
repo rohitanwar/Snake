@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Button.gd" type="Script" id=2]
-[ext_resource path="res://Start_Menu.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GUI/Button.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/GUI/Start_Menu.gd" type="Script" id=3]
 [ext_resource path="res://assets/fonts/Dynamic_Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/Levels/Game.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.329412, 0.552941, 1, 1 )
@@ -46,7 +47,7 @@ size = 64
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0, 0.72549, 0.0784314, 1 )
@@ -79,10 +80,11 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Start"
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+game_scene = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 33.6818

@@ -145,3 +145,6 @@ func _on_SnakeTick_timeout():
 	
 func _process(delta):
 	check_game_over()
+	
+	if Input.is_action_just_released("ui_cancel"):
+		get_tree().change_scene("res://Scenes/GUI/Start Menu.tscn")

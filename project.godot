@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Snake"
-run/main_scene="res://Start Menu.tscn"
+run/main_scene="res://Scenes/GUI/Start Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
