@@ -12,7 +12,7 @@ var add_apple = false
 func _ready():
 	applepos = place_apple()
 	draw_apple()
-	draw_snake()
+#	draw_snake()
 
 func get_empty_cells():
 	var empty_cells = []
