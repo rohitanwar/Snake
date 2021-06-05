@@ -16,6 +16,7 @@ func _ready():
 	applepos = place_apple()
 	draw_apple()
 	draw_snake()
+	$SnakeTick.wait_time = 0.2 - SharedData.difficulty * 0.05
 
 func get_empty_cells():
 	var empty_cells = []
