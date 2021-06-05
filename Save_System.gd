@@ -10,9 +10,8 @@ onready var path = "user://save.dat"
 
 func _ready():
 	var dir = Directory.new()
-	if dir.dir_exists(path):
+	if dir.file_exists(path):
 		data = load_score()#Loading saved data when the game starts
-
 #Saves data on a file
 func save_score():
 	var file = File.new()
@@ -37,9 +36,4 @@ func load_score():
 	var read = {}
 	read = file.get_var()
 	return read
-	
-	
-	
-	
-	
 	
