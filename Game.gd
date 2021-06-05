@@ -9,7 +9,10 @@ var snake_body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
 var snake_direction = Vector2(1,0)
 var add_apple = false
 
+var game_over = false
+
 func _ready():
+	
 	applepos = place_apple()
 	draw_apple()
 	draw_snake()
@@ -119,9 +122,11 @@ func check_game_over():
 	var head = snake_body[0]
 	if head.x >= 20 or head.x < 0 or head.y >= 20 or head.y < 0:
 		reset()
+		game_over = true
 	for block in snake_body.slice(1, snake_body.size() - 1):
 		if block == head:
 			reset()
+			
 
 func reset():
 	snake_body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]

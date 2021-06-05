@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/art/Snake_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://assets/art/apple.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/grass.png" type="Texture" id=4]
+[ext_resource path="res://HUD.gd" type="Script" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Snake_spritesheet.png 0"
@@ -71,5 +72,27 @@ format = 1
 [node name="SnakeTick" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_lable" type="Label" parent="HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -160.691
+margin_top = 23.1634
+margin_right = -110.691
+margin_bottom = 37.1634
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="SnakeTick" to="." method="_on_SnakeTick_timeout"]
