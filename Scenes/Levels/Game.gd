@@ -4,7 +4,7 @@ const SNAKE = 0
 const APPLE = 1
 
 var applepos
-
+var addx;
 var snake_body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
 var snake_direction = Vector2(1,0)
 var add_apple = false
@@ -27,13 +27,35 @@ func get_empty_cells():
 	return empty_cells
 
 func place_apple():
-	randomize()
+	
 	var cells = get_empty_cells()
-	var cell = cells[randi() % cells.size()]
+	var cell
+	
+	if(SharedData.difficulty == 0):
+		cell = cells[int(round(rand_range(5,14))) % cells.size()]
+		addx = int(round(rand_range(5,14)))
+	elif(SharedData.difficulty == 1):
+		var side  = rand_range(0,1)
+		if(side>=0.5):
+			cell = cells[int(round(rand_range(13,17))) % cells.size()]
+			addx = int(round(rand_range(13,17)))
+		else:
+			cell = cells[int(round(rand_range(2,6))) % cells.size()]
+			addx = int(round(rand_range(2,6)))
+	elif(SharedData.difficulty == 2):
+		var side  = rand_range(0,1)
+		if(side>=0.5):
+			cell = cells[int(round(rand_range(16,19))) % cells.size()]
+			addx = int(round(rand_range(16,19)))
+		else:
+			cell = cells[int(round(rand_range(0,4))) % cells.size()]
+			addx = int(round(rand_range(0,4)))
+	#print("cell",cell)
+	#print("apple",applepos)
 	return cell
 
 func draw_apple():
-	$SnakeApple.set_cell(applepos.x,applepos.y,APPLE)
+	$SnakeApple.set_cell(applepos.x+addx,applepos.y,APPLE)
 	
 func draw_snake():
 	for block_index in snake_body.size():
@@ -134,7 +156,8 @@ func reset():
 	snake_direction = Vector2(1,0) 	
 
 func check_apple_eaten():
-	if applepos == snake_body[0]:
+	#print(snake_body[0].x)
+	if applepos.x+addx == snake_body[0].x && applepos.y == snake_body[0].y:
 		add_apple = true
 		applepos = place_apple()
 
