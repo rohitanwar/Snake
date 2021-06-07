@@ -85,10 +85,10 @@ __meta__ = {
 [node name="score_lable" type="Label" parent="HUD"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -246.0
-margin_top = 18.0
-margin_right = 16.0
-margin_bottom = 94.0
+margin_left = -236.0
+margin_top = 38.0
+margin_right = -70.0
+margin_bottom = 114.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Score"

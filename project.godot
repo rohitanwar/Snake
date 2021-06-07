@@ -26,6 +26,10 @@ window/size/height=800
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[global]
+
+resol=false
+
 [physics]
 
 common/enable_pause_aware_picking=true

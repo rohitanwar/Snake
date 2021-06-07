@@ -20,8 +20,8 @@ func _ready():
 
 func get_empty_cells():
 	var empty_cells = []
-	for i in range(20):
-		for j in range(20):
+	for i in get_diff():
+		for j in get_diff():
 			if $SnakeApple.get_cell(i,j) == -1:
 				empty_cells.append(Vector2(i,j))
 	return empty_cells
@@ -29,33 +29,12 @@ func get_empty_cells():
 func place_apple():
 	
 	var cells = get_empty_cells()
-	var cell
+	var cell = cells[randi() % cells.size()]
 	
-	if(SharedData.difficulty == 0):
-		cell = cells[int(round(rand_range(5,14))) % cells.size()]
-		addx = int(round(rand_range(5,14)))
-	elif(SharedData.difficulty == 1):
-		var side  = rand_range(0,1)
-		if(side>=0.5):
-			cell = cells[int(round(rand_range(13,17))) % cells.size()]
-			addx = int(round(rand_range(13,17)))
-		else:
-			cell = cells[int(round(rand_range(2,6))) % cells.size()]
-			addx = int(round(rand_range(2,6)))
-	elif(SharedData.difficulty == 2):
-		var side  = rand_range(0,1)
-		if(side>=0.5):
-			cell = cells[int(round(rand_range(16,19))) % cells.size()]
-			addx = int(round(rand_range(16,19)))
-		else:
-			cell = cells[int(round(rand_range(0,4))) % cells.size()]
-			addx = int(round(rand_range(0,4)))
-	#print("cell",cell)
-	#print("apple",applepos)
 	return cell
 
 func draw_apple():
-	$SnakeApple.set_cell(applepos.x+addx,applepos.y,APPLE)
+	$SnakeApple.set_cell(applepos.x,applepos.y,APPLE)
 	
 func draw_snake():
 	for block_index in snake_body.size():
@@ -156,8 +135,7 @@ func reset():
 	snake_direction = Vector2(1,0) 	
 
 func check_apple_eaten():
-	#print(snake_body[0].x)
-	if applepos.x+addx == snake_body[0].x && applepos.y == snake_body[0].y:
+	if applepos.x == snake_body[0].x && applepos.y == snake_body[0].y:
 		add_apple = true
 		applepos = place_apple()
 
@@ -166,7 +144,19 @@ func _on_SnakeTick_timeout():
 	draw_apple()
 	draw_snake()
 	check_apple_eaten()
+
+func get_diff():
+	var diff
 	
+	if SharedData.difficulty == 0:
+		diff = range(5, 15)
+	if SharedData.difficulty == 1:
+		diff = range(3, 17)
+	if SharedData.difficulty == 2:
+		diff = range(0, 20)
+	return diff
+
+
 func _process(delta):
 	check_game_over()
 	
