@@ -4,9 +4,9 @@ const SNAKE = 0
 const APPLE = 1
 
 var applepos
-var addx;
 var snake_body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
 var snake_direction = Vector2(1,0)
+var new_snake_direction = Vector2(1,0)
 var add_apple = false
 
 var game_over = false
@@ -90,16 +90,18 @@ func move_snake():
 	if add_apple:
 		delete_tiles(SNAKE)
 		var body_copy = snake_body.slice(0,snake_body.size() - 1)
-		var new_head = body_copy[0] + snake_direction
+		var new_head = body_copy[0] + new_snake_direction
 		body_copy.insert(0,new_head)
 		snake_body = body_copy
 		add_apple = false
+		snake_direction = new_snake_direction
 	else:
 		delete_tiles(SNAKE)
 		var body_copy = snake_body.slice(0,snake_body.size() - 2)
-		var new_head = body_copy[0] + snake_direction
+		var new_head = body_copy[0] + new_snake_direction
 		body_copy.insert(0,new_head)
 		snake_body = body_copy
+		snake_direction = new_snake_direction
 
 func delete_tiles(id:int):
 	var cells = $SnakeApple.get_used_cells_by_id(id)
@@ -109,16 +111,16 @@ func delete_tiles(id:int):
 func _input(_event):
 	if Input.is_action_just_pressed("ui_up") or Input.is_key_pressed(KEY_W):
 		if not snake_direction == Vector2(0,1):
-			snake_direction = Vector2(0,-1)
+			new_snake_direction = Vector2(0,-1)
 	if Input.is_action_just_pressed("ui_right") or Input.is_key_pressed(KEY_D): 
 		if not snake_direction == Vector2(-1,0):
-			snake_direction = Vector2(1,0)
+			new_snake_direction = Vector2(1,0)
 	if Input.is_action_just_pressed("ui_left") or Input.is_key_pressed(KEY_A): 
 		if not snake_direction == Vector2(1,0):
-			snake_direction = Vector2(-1,0)
+			new_snake_direction = Vector2(-1,0)
 	if Input.is_action_just_pressed("ui_down") or Input.is_key_pressed(KEY_S): 
 		if not snake_direction == Vector2(0,-1):
-			snake_direction = Vector2(0,1)
+			new_snake_direction = Vector2(0,1)
 
 func check_game_over():
 	var head = snake_body[0]
@@ -133,6 +135,7 @@ func check_game_over():
 func reset():
 	snake_body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
 	snake_direction = Vector2(1,0) 	
+	new_snake_direction = Vector2(1,0)
 
 func check_apple_eaten():
 	if applepos.x == snake_body[0].x && applepos.y == snake_body[0].y:
