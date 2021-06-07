@@ -12,9 +12,9 @@ func _physics_process(delta):
 	Score_label.text = "Score " + str(current_score)
 	
 	#Save the score if player reaches a higher score
-	if SaveSystem.data["high_score"] < current_score:
+	if SaveSystem.data[SharedData.difficulty] < current_score:
 		print("saving")
-		SaveSystem.data["high_score"] = current_score
+		SaveSystem.data[SharedData.difficulty] = current_score
 		SaveSystem.save_score()
 
 	if game_over():

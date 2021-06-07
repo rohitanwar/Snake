@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Dynamic_Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/GUI/High_score_Screen.gd" type="Script" id=2]
+
+[node name="High_score_Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -174.0
+margin_top = -240.215
+margin_right = 174.0
+margin_bottom = 154.785
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 348.0
+margin_bottom = 155.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Scores
+"
+
+[node name="E_Score" type="Label" parent="VBoxContainer"]
+margin_top = 159.0
+margin_right = 348.0
+margin_bottom = 235.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Easy: "
+
+[node name="M_Score" type="Label" parent="VBoxContainer"]
+margin_top = 239.0
+margin_right = 348.0
+margin_bottom = 315.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Meduim: "
+
+[node name="H_Score" type="Label" parent="VBoxContainer"]
+margin_top = 319.0
+margin_right = 348.0
+margin_bottom = 395.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hard: "

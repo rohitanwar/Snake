@@ -1,11 +1,13 @@
 extends Node
 
 var data := {
-	"high_score" : 0
+	0 : 0,
+	1 : 0,
+	2 : 0,
 }
 
 #Directory of save file
-onready var path = "user://save.dat"
+onready var path = "user://saved.dat"
 
 
 func _ready():
