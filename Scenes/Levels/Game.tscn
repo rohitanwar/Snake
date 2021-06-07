@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/art/Snake_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Levels/Game.gd" type="Script" id=2]
 [ext_resource path="res://assets/art/apple.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/grass.png" type="Texture" id=4]
 [ext_resource path="res://HUD.gd" type="Script" id=5]
-[ext_resource path="res://assets/fonts/Dynamic_Font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/fonts/Roboto-Medium.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Snake_spritesheet.png 0"
@@ -51,6 +51,11 @@
 1/shapes = [  ]
 1/z_index = 0
 
+[sub_resource type="DynamicFont" id=2]
+size = 48
+use_filter = true
+font_data = ExtResource( 6 )
+
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
 
@@ -85,13 +90,15 @@ __meta__ = {
 [node name="score_lable" type="Label" parent="HUD"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -236.0
+margin_left = -150.0
 margin_top = 38.0
-margin_right = -70.0
-margin_bottom = 114.0
-custom_fonts/font = ExtResource( 6 )
+margin_right = -26.0
+margin_bottom = 95.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Score"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
