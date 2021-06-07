@@ -20,8 +20,8 @@ func _ready():
 
 func get_empty_cells():
 	var empty_cells = []
-	for i in range(20):
-		for j in range(20):
+	for i in get_diff():
+		for j in get_diff():
 			if $SnakeApple.get_cell(i,j) == -1:
 				empty_cells.append(Vector2(i,j))
 	return empty_cells
@@ -143,7 +143,19 @@ func _on_SnakeTick_timeout():
 	draw_apple()
 	draw_snake()
 	check_apple_eaten()
+
+func get_diff():
+	var diff
 	
+	if SharedData.difficulty == 0:
+		diff = range(5, 15)
+	if SharedData.difficulty == 1:
+		diff = range(3, 17)
+	if SharedData.difficulty == 2:
+		diff = range(0, 20)
+	return diff
+
+
 func _process(delta):
 	check_game_over()
 	
