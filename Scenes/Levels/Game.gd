@@ -150,7 +150,6 @@ func _on_SnakeTick_timeout():
 
 func get_diff():
 	var diff
-	
 	if SharedData.difficulty == 0:
 		diff = range(5, 15)
 	if SharedData.difficulty == 1:
@@ -158,7 +157,6 @@ func get_diff():
 	if SharedData.difficulty == 2:
 		diff = range(0, 20)
 	return diff
-
 
 func _process(delta):
 	check_game_over()
